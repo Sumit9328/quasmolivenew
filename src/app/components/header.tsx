@@ -2,10 +2,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
 
 export default function Header() {
     const [openProducts, setOpenProducts] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
 
     const productItems = [
         "Dissecting & Educational Microscopes",
@@ -32,7 +34,7 @@ export default function Header() {
 
     return (
         <nav className="w-full border-b bg-white shadow-sm sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto flex items-center justify-between py-3 px-6">
+            <div className="max-w-7xl mx-auto flex items-center justify-between py-3 px-4 md:px-6">
 
                 {/* LOGO */}
                 <Link href="/" className="text-xl font-bold">
@@ -41,14 +43,14 @@ export default function Header() {
                         alt="logo"
                         width={70}   // required
                         height={40}   // required
-                        className="h-[70px] w-[71px] object-contain"
+                        className="h-[50px] w-[51px] md:h-[70px] md:w-[71px] object-contain"
                     />
                 </Link>
 
-                {/* MENU ITEMS */}
+                {/* DESKTOP MENU ITEMS */}
                 <ul className="hidden md:flex items-center space-x-8 font-medium text-black pp-500">
                     <li>
-                        <Link href="/about" className="hover:text-blue-500 text-[16px] font-[pp-5] text-black">About Us</Link>
+                        <Link href="/about" className="hover:text-blue-500 text-[16px] pp-500 text-black">About Us</Link>
                     </li>
 
                     {/* OUR PRODUCTS DROPDOWN */}
@@ -57,7 +59,7 @@ export default function Header() {
                         onMouseEnter={() => setOpenProducts(true)}
                         onMouseLeave={() => setOpenProducts(false)}
                     >
-                        <button className="flex items-center gap-1 hover:text-blue-500 text-[16px] font-[pp-5]">
+                        <button className="flex items-center gap-1 hover:text-blue-500 text-[16px] pp-500">
                             Our Products <ChevronDown size={16} />
                         </button>
 
@@ -93,7 +95,95 @@ export default function Header() {
                         <Link href="/contact" className="hover:text-blue-500">Contact Us</Link>
                     </li>
                 </ul>
+
+                {/* HAMBURGER MENU BUTTON - MOBILE ONLY */}
+                <button
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    className="md:hidden p-2 text-gray-700 hover:text-blue-500 transition"
+                    aria-label="Toggle menu"
+                >
+                    {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
             </div>
+
+            {/* MOBILE MENU */}
+            {mobileMenuOpen && (
+                <div className="md:hidden bg-white border-t shadow-lg">
+                    <ul className="flex flex-col py-4 px-4 space-y-4">
+                        <li>
+                            <Link 
+                                href="/about" 
+                                className="block py-2 text-[16px] pp-500 text-black hover:text-blue-500"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                About Us
+                            </Link>
+                        </li>
+
+                        {/* MOBILE PRODUCTS DROPDOWN */}
+                        <li>
+                            <button
+                                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                                className="flex items-center justify-between w-full py-2 text-[16px] pp-500 text-black hover:text-blue-500"
+                            >
+                                <span>Our Products</span>
+                                <ChevronDown 
+                                    size={16} 
+                                    className={`transition-transform ${mobileProductsOpen ? 'rotate-180' : ''}`}
+                                />
+                            </button>
+                            
+                            {mobileProductsOpen && (
+                                <div className="mt-2 pl-4 space-y-2 max-h-[400px] overflow-y-auto">
+                                    {productItems.map((name, i) => (
+                                        <Link
+                                            key={i}
+                                            href="#"
+                                            className="block py-2 text-sm text-gray-700 hover:text-blue-500 border-b border-gray-100"
+                                            onClick={() => {
+                                                setMobileProductsOpen(false);
+                                                setMobileMenuOpen(false);
+                                            }}
+                                        >
+                                            {name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </li>
+
+                        <li>
+                            <Link 
+                                href="/accessories" 
+                                className="block py-2 text-[16px] pp-500 font-[500] hover:text-blue-500"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                Accessories
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link 
+                                href="/resources" 
+                                className="block py-2 text-[16px] pp-500 hover:text-blue-500"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                Resources
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link 
+                                href="/contact" 
+                                className="block py-2 text-[16px] pp-500 hover:text-blue-500"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                Contact Us
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            )}
         </nav>
     );
 }

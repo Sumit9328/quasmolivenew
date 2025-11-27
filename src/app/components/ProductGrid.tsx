@@ -48,11 +48,12 @@ const products = [
 export default function ProductGrid() {
   return (
     <section className="max-w-7xl mx-auto px-4 py-[90px]">
-      <p className="text-[18px] pp-700 tracking-wide text-[#222222]">
+
+      <p className="text-[18px] pp-700 tracking-wide text-[#222222] max-md:text-center">
         OUR PRODUCTS
       </p>
 
-      <h2 className="text-[41px] pp-400 mb-10">
+      <h2 className="text-[41px] pp-400 mb-10 max-md:text-2xl max-md:text-center">
         View Our <span className="pp-700">Microscopy Solutions</span>
       </h2>
 
@@ -62,8 +63,15 @@ export default function ProductGrid() {
             key={i}
             className="shadow-md hover:shadow-xl duration-300 rounded-md overflow-hidden"
           >
-            {/* FIXED IMAGE SIZE */}
-            <div className="w-[338px] h-[357px] relative">
+            {/* IMAGE - Desktop same, mobile fluid */}
+            <div
+              className="
+                w-[338px] h-[357px] relative
+
+                max-md:w-full
+                max-md:h-[220px]
+              "
+            >
               <Image
                 src={p.img}
                 alt={p.title}
@@ -72,9 +80,12 @@ export default function ProductGrid() {
               />
             </div>
 
-            <div className="p-4  bg-[#F4F5F7]">
-              <h3 className="pp-600 text-[27px] leading-[32px]">{p.title}</h3>
-              <p className="text-[16px] pp-500 mt-1 line-clamp-2 text-[#898989]">
+            <div className="p-4 bg-[#F4F5F7]">
+              <h3 className="pp-600 text-[27px] leading-[32px] max-md:text-lg">
+                {p.title}
+              </h3>
+
+              <p className="text-[16px] pp-500 mt-1 line-clamp-2 text-[#898989] max-md:text-sm">
                 {p.desc}
               </p>
             </div>
@@ -87,6 +98,7 @@ export default function ProductGrid() {
           Show More
         </button>
       </div>
+
     </section>
   );
 }

@@ -16,7 +16,7 @@ export default function LearnMoreButton() {
     >
       {/* White rounded portion with Learn More text - slides right on click */}
       <span
-        className={`relative z-10 px-6 py-2 bg-white text-blue-600 rounded-[6px] font-medium transition-transform duration-500 ${isClicked ? 'translate-x-8' : 'translate-x-0'
+        className={`relative z-10 px-6 py-2 bg-white text-blue-600 rounded-[6px] font-[600] text-[18px] transition-transform duration-500 ${isClicked ? 'translate-x-8' : 'translate-x-0'
           }`}
       >
         Learn More

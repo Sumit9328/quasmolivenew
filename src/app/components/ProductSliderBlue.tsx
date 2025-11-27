@@ -1,67 +1,48 @@
-"use client";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+export default function SubscribeSection() {
+  return (
+    <section className="w-full bg-[#2f66e0] py-14 px-6">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
 
+        {/* LEFT CONTENT */}
+        <div className="text-white max-md:text-center">
+          <h3 className="text-[36px] inter font-semibold mb-2 max-md:text-xl">
+            Subscribe to our Latest News
+          </h3>
+          <p className="text-[14px] inter font-[400] text-blue-100 max-w-md max-md:text-sm max-md:mx-auto">
+            Join our mailing list and get the latest Quasmo news, insights,
+            updates, and exclusive articles delivered to your inbox.
+          </p>
+        </div>
 
-export default function ProductSliderBlue() {
-    const slides = [
-        {
-            title: "16X EYE PIECE",
-            desc: `The 16x Eyepiece offers enhanced magnification for detailed specimen viewing...`,
-            img: "/eyepiece16.png",
-            tags: ["Medical Laboratories", "Educational Institutions", "Research Facilities"],
-        },
-    ];
+        {/* RIGHT FORM */}
+        <div className="flex items-center gap-4 max-md:flex-col max-md:w-full">
 
-    return (
-        <section className="w-full bg-[#2A52FF] py-14 text-white">
-            <Swiper
-                modules={[Navigation]}
-                navigation
-                loop
-                className="px-8 md:px-20"
-            >
-                {slides.map((item, idx) => (
-                    <SwiperSlide key={idx}>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          {/* INPUT */}
+          <input
+            type="email"
+            placeholder="Your email address"
+            className="
+              bg-white px-5 py-4 rounded-lg outline-none 
+              text-sm text-[14px] inter font-[400] w-[280px]
+              max-md:w-full
+            "
+          />
 
-                            {/* Left text box */}
-                            <div className="bg-white bg-opacity-10 backdrop-blur-lg p-6 rounded-xl h-fit">
-                                <h2 className="text-2xl font-bold mb-3">
-                                    {item.title}
-                                </h2>
-                                <p className="text-sm opacity-90">
-                                    {item.desc}
-                                </p>
-                            </div>
+          {/* BUTTON */}
+          <button
+            className="
+              bg-white text-[#316CE6] px-6 py-3 rounded-lg 
+              text-[14px] inter font-bold flex items-center gap-2 shadow
+              max-md:w-full max-md:justify-center
+            "
+          >
+            Subscribe Now
+            <span className="text-lg p-0 m-0">→</span>
+          </button>
 
-                            {/* Right image */}
-                            <div className="flex justify-center">
-                                <Image
-                                    src={item.img}
-                                    alt={item.title}
-                                    width={380}
-                                    height={380}
-                                    className="drop-shadow-xl"
-                                />
-                            </div>
-                        </div>
+        </div>
 
-                        {/* Bottom tags */}
-                        <div className="flex gap-3 flex-wrap mt-6">
-                            {item.tags.map((t, i) => (
-                                <button
-                                    key={i}
-                                    className="bg-white text-blue-600 px-4 py-1 rounded-full text-sm"
-                                >
-                                    {t}
-                                </button>
-                            ))}
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </section>
-    );
+      </div>
+    </section>
+  );
 }
