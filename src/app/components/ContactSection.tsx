@@ -61,7 +61,7 @@ export default function ContactSection() {
               Message
             </label>
             <textarea
-              rows="4"
+              rows={4}
               className="border-b border-gray-300 focus:border-black outline-none pb-1"
               placeholder="Write your message..."
             />
