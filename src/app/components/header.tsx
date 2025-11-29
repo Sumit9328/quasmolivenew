@@ -111,8 +111,8 @@ export default function Header() {
                 <div className="md:hidden bg-white border-t shadow-lg">
                     <ul className="flex flex-col py-4 px-4 space-y-4">
                         <li>
-                            <Link 
-                                href="/about" 
+                            <Link
+                                href="/about"
                                 className="block py-2 text-[16px] pp-500 text-black hover:text-blue-500"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
@@ -127,12 +127,12 @@ export default function Header() {
                                 className="flex items-center justify-between w-full py-2 text-[16px] pp-500 text-black hover:text-blue-500"
                             >
                                 <span>Our Products</span>
-                                <ChevronDown 
-                                    size={16} 
+                                <ChevronDown
+                                    size={16}
                                     className={`transition-transform ${mobileProductsOpen ? 'rotate-180' : ''}`}
                                 />
                             </button>
-                            
+
                             {mobileProductsOpen && (
                                 <div className="mt-2 pl-4 space-y-2 max-h-[400px] overflow-y-auto">
                                     {productItems.map((name, i) => (
@@ -153,8 +153,8 @@ export default function Header() {
                         </li>
 
                         <li>
-                            <Link 
-                                href="/accessories" 
+                            <Link
+                                href="/accessories"
                                 className="block py-2 text-[16px] pp-500 font-[500] hover:text-blue-500"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
@@ -163,8 +163,8 @@ export default function Header() {
                         </li>
 
                         <li>
-                            <Link 
-                                href="/resources" 
+                            <Link
+                                href="/resources"
                                 className="block py-2 text-[16px] pp-500 hover:text-blue-500"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
@@ -173,8 +173,8 @@ export default function Header() {
                         </li>
 
                         <li>
-                            <Link 
-                                href="/contact" 
+                            <Link
+                                href="/contact"
                                 className="block py-2 text-[16px] pp-500 hover:text-blue-500"
                                 onClick={() => setMobileMenuOpen(false)}
                             >

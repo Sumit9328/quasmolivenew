@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Header from "./components/header";
 import ContactSection from "./components/ContactSection";
-import ProductSliderBlue from "./components/ProductSliderBlue";
-import ProductSliderWhite from "./components/ProductSliderWhite";
+import SubscribeSection from "./components/SubscribeSection";
 import HomeSlider from "./components/HomeSlider";
 import ImpactStats from "./components/ImpactStats";
 import ProductGrid from "./components/ProductGrid";
@@ -34,8 +33,7 @@ export default function Home() {
       <TestimonialSection />
       <LatestBlogs />
       <ContactSection />
-      <ProductSliderBlue />
-      {/* <ProductSliderWhite /> */}
+      <SubscribeSection />
       <QuasmoSection />
       <QuasmoFooter />
     </>
