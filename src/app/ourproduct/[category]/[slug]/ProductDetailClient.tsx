@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Header from '@/app/components/header';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ChevronRight } from 'lucide-react';
 import { unslugify } from '@/app/utils/slugify';
@@ -33,7 +32,7 @@ const getProductData = (category: string, slug: string) => {
       "/images/product2.jpg",
       "/images/product1.jpg",
       "/images/product2.jpg",
-    ],
+    ].map(img => img || "/assets/default.png"),
     description: `The ${productName} is a precision-engineered microscope designed for professional use in laboratories, research institutions, and educational settings.`,
     highlight: "Trusted by professionals in hospitals, research institutes, and academic labs for their reliability and precision.",
     longDescription: `The ${productName} is a precision-engineered microscope designed for professional use in laboratories, research institutions, and educational settings. Built with over 60 years of manufacturing excellence, this instrument combines clarity, durability, and ergonomic design to meet the evolving demands of diagnostics and research. At Quasmo, we craft precision instruments for pathology, metallurgy, fluorescence, and education—trusted by labs and institutions across India. With over 60 years of manufacturing excellence, our products combine clarity, durability, and ergonomic design to meet the evolving demands of diagnostics and research.`,
@@ -49,12 +48,13 @@ export default function ProductDetailClient({ category, slug }: ProductDetailCli
       
       {/* Hero Banner Section */}
       <section className="relative w-full h-[70vh] min-h-[500px] flex items-center justify-center">
-        <Image
+        <img
           src="/ourproduct/image 129.png"
           alt="Microscope"
-          fill
-          priority
-          className="object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => {
+              e.currentTarget.src = "/assets/default.png";
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0052CC]/80 via-[#0052CC]/60 to-transparent"></div>
         

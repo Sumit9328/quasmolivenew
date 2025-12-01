@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '@/app/components/header';
-import Image from 'next/image';
 import Link from 'next/link';
 import { unslugify, slugify } from '@/app/utils/slugify';
 import { FAQSection } from '@/app/components/FAQSection';
@@ -78,12 +77,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
             {/* Hero Section */}
             <section className="relative w-full h-[70vh] min-h-[500px] flex items-center justify-center">
-                <Image
+                <img
                     src="/ourproduct/image 129.png"
                     alt="Microscope"
-                    fill
-                    priority
-                    className="object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    onError={(e) => {
+                        e.currentTarget.src = "/assets/default.png";
+                    }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#0052CC]/80 via-[#0052CC]/60 to-transparent"></div>
 
@@ -149,32 +149,41 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                     <div className="relative w-full min-h-[520px]">
                         {/* TOP LEFT IMAGE */}
                         <div className="absolute top-0 left-0 bg-white p-4 rounded-xl shadow-md">
-                            <Image
+                            <img
                                 src="/assets/accessory-img1.png"
                                 alt="Accessory 1"
                                 width={400}
                                 height={350}
                                 className="w-[260px] h-auto object-contain"
+                                onError={(e) => {
+                                    e.currentTarget.src = "/assets/default.png";
+                                }}
                             />
                         </div>
                         {/* TOP RIGHT IMAGE */}
                         <div className="absolute top-10 right-0 bg-white p-4 rounded-xl shadow-md">
-                            <Image
+                            <img
                                 src="/assets/accessory-img2.png"
                                 alt="Accessory 2"
                                 width={400}
                                 height={350}
                                 className="w-[260px] h-auto object-contain"
+                                onError={(e) => {
+                                    e.currentTarget.src = "/assets/default.png";
+                                }}
                             />
                         </div>
                         {/* BOTTOM CENTER IMAGE */}
                         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-white p-4 rounded-xl shadow-md">
-                            <Image
+                            <img
                                 src="/assets/accessory-img3.png"
                                 alt="Accessory 3"
                                 width={500}
                                 height={450}
                                 className="w-[340px] h-auto object-contain"
+                                onError={(e) => {
+                                    e.currentTarget.src = "/assets/default.png";
+                                }}
                             />
                         </div>
                     </div>
@@ -200,11 +209,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                                 >
                                     {/* Product Image */}
                                     <div className="relative w-full h-48 mb-3 bg-gray-100 rounded-lg overflow-hidden">
-                                        <Image
+                                        <img
                                             src="/images/product1.jpg"
                                             alt={productName}
-                                            fill
-                                            className="object-contain group-hover:scale-105 transition-transform duration-300"
+                                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                                            onError={(e) => {
+                                                e.currentTarget.src = "/assets/default.png";
+                                            }}
                                         />
                                     </div>
 

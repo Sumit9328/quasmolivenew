@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import ProductPage from './ProductPage';
 import BrochureAndRelated from './BrochureAndRelated';
@@ -20,7 +19,7 @@ interface ProductDetailProps {
 }
 
 export default function ProductDetail({ product, categorySlug }: ProductDetailProps) {
-  const [selected, setSelected] = useState(product.images[0]);
+  const [selected, setSelected] = useState(product.images?.[0] || "/assets/default.png");
   const [tab, setTab] = useState("description");
 
   return (
@@ -38,11 +37,13 @@ export default function ProductDetail({ product, categorySlug }: ProductDetailPr
           {/* Main Image */}
           <div className="bg-[#F4F6FF] p-6 rounded-2xl border border-gray-200">
             <div className="relative w-full h-[360px]">
-              <Image
-                src={selected}
+              <img
+                src={selected || "/assets/default.png"}
                 alt={product.name}
-                fill
-                className="object-contain"
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                    e.currentTarget.src = "/assets/default.png";
+                }}
               />
             </div>
           </div>
@@ -59,7 +60,14 @@ export default function ProductDetail({ product, categorySlug }: ProductDetailPr
                 }`}
               >
                 <div className="relative w-full h-full">
-                  <Image src={img} alt={product.name} fill className="object-contain" />
+                  <img 
+                    src={img || "/assets/default.png"} 
+                    alt={product.name} 
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                        e.currentTarget.src = "/assets/default.png";
+                    }}
+                  />
                 </div>
               </div>
             ))}

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -43,12 +42,15 @@ export default function ProductPage({ productName, productDescription, category,
             ensures clear visibility with high resolution optics and durable build.
           </p>
           <div className="mt-5 flex justify-center">
-            <Image
+            <img
               src="/sample-micro.png"
               width={200}
               height={200}
               alt="product"
               className="object-contain"
+              onError={(e) => {
+                  e.currentTarget.src = "/assets/default.png";
+              }}
             />
           </div>
         </div>
@@ -101,11 +103,14 @@ export default function ProductPage({ productName, productDescription, category,
               className="border rounded-xl p-4 shadow-sm hover:shadow-lg transition"
             >
               <div className="flex justify-center">
-                <Image
-                  src={item.img}
+                <img
+                  src={item.img || "/assets/default.png"}
                   width={150}
                   height={150}
                   alt={item.title}
+                  onError={(e) => {
+                      e.currentTarget.src = "/assets/default.png";
+                  }}
                 />
               </div>
               <p className="text-center mt-4 font-medium">{item.title}</p>

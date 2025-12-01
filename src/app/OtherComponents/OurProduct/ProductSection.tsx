@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { slugify } from "@/app/utils/slugify";
@@ -35,11 +34,13 @@ export default function ProductSection({
               reverse ? "md:order-2" : "md:order-1"
             }`}
           >
-            <Image
-              src={image}
+            <img
+              src={image || "/assets/default.png"}
               alt={title}
-              fill
-              className="object-cover"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                  e.currentTarget.src = "/assets/default.png";
+              }}
             />
           </div>
 

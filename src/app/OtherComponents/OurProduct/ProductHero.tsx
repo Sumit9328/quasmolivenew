@@ -1,18 +1,17 @@
 "use client";
 
-import Image from "next/image";
-
 export default function ProductHero() {
   return (
     <section className="relative w-full h-[70vh] min-h-[500px] flex items-center justify-center">
       
       {/* Background Image */}
-      <Image
+      <img
         src="/ourproduct/image 129.png"
         alt="Microscope"
-        fill
-        priority
-        className="object-cover"
+        className="absolute inset-0 w-full h-full object-cover"
+        onError={(e) => {
+            e.currentTarget.src = "/assets/default.png";
+        }}
       />
 
       {/* Blue Overlay Gradient */}

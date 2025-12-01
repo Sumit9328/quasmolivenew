@@ -33,11 +33,13 @@ export default function OurProductLayout({ title, products }: OurProductLayoutPr
             >
               {/* Product Image */}
               <div className="relative w-full h-48 mb-3">
-                <Image
-                  src={item.image}
+                <img
+                  src={item.image || "/assets/default.png"}
                   alt={item.name}
-                  fill
-                  className="object-contain"
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                      e.currentTarget.src = "/assets/default.png";
+                  }}
                 />
               </div>
 
