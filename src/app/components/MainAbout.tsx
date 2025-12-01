@@ -14,16 +14,7 @@ export default function AboutSection() {
                         alt="Background Vector"
                         width={900}
                         height={700}
-                        className="
-              absolute 
-              left-[870px] top-[340px] 
-              -translate-x-1/2 -translate-y-1/2 
-              w-auto h-[500px] opacity-20 pointer-events-none
-
-              max-md:left-1/2 
-              max-md:top-1/2
-              max-md:h-[300px]
-            "
+                        className="absolute left-[870px] top-[340px] -translate-x-1/2 -translate-y-1/2 w-auto h-[500px] opacity-20 pointer-events-none max-md:left-1/2 max-md:top-1/2 max-md:h-[300px]"
                     />
 
                     <div className="relative container mx-auto px-6">
@@ -39,12 +30,7 @@ export default function AboutSection() {
                                         alt="Microscope"
                                         width={256}
                                         height={256}
-                                        className="
-                      shadow-lg object-cover absolute top-[-140px]
-
-                      max-md:static
-                      max-md:mb-4
-                    "
+                                        className="shadow-lg object-cover absolute top-[-140px] max-md:static max-md:mb-4"
                                     />
 
                                     {/* Bottom Image */}
@@ -53,28 +39,11 @@ export default function AboutSection() {
                                         alt="Microscope"
                                         width={256}
                                         height={256}
-                                        className="
-                      shadow-lg object-cover relative top-[130px] left-[110px]
-
-                      max-md:static
-                      max-md:ml-0
-                    "
+                                        className="shadow-lg object-cover relative top-[130px] left-[110px] max-md:static max-md:ml-0"
                                     />
 
                                     {/* Blue Experience Box */}
-                                    <div
-                                        className="
-                      absolute left-[-30px] top-[75px] 
-                      bg-blue-600 text-white p-8 shadow-xl w-40
-
-                      max-md:relative
-                      max-md:left-0
-                      max-md:top-0
-                      max-md:mt-4
-                      max-md:mx-auto
-                      max-md:text-center
-                    "
-                                    >
+                                    <div className="absolute left-[-30px] top-[75px] bg-blue-600 text-white p-8 shadow-xl w-40 max-md:relative max-md:left-0 max-md:top-0 max-md:mt-4 max-md:mx-auto max-md:text-center">
                                         <h2 className="text-4xl font-bold">60+</h2>
                                         <p className="text-sm mt-2 leading-snug">
                                             Years of Precision Craftsmanship in Scientific

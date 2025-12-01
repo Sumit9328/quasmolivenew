@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { slugify } from "@/app/utils/slugify";
 
 interface ProductSectionProps {
   title: string;
@@ -18,6 +20,8 @@ export default function ProductSection({
   products,
   reverse = false,
 }: ProductSectionProps) {
+  const categorySlug = slugify(title);
+
   return (
     <section className="w-full py-20">
       <div className="max-w-7xl mx-auto px-4">
@@ -57,19 +61,23 @@ export default function ProductSection({
 
         {/* PRODUCT GRID BELOW */}
         <div className="mt-12 grid grid-cols-5 gap-4">
-          {products.map((p, i) => (
-            <button
-              key={i}
-              className={`flex items-center justify-between border rounded-lg px-3 py-2 text-[13px] shadow-sm transition ${
-                i === 0
-                  ? "bg-blue-600 text-white"
-                  : "bg-white text-gray-700 hover:bg-blue-50"
-              }`}
-            >
-              {p}
-              <ArrowRight size={15} />
-            </button>
-          ))}
+          {products.map((p, i) => {
+            const productSlug = slugify(p);
+            return (
+              <Link
+                key={i}
+                href={`/ourproduct/${categorySlug}/${productSlug}`}
+                className={`flex items-center justify-between border rounded-lg px-3 py-2 text-[13px] shadow-sm transition ${
+                  i === 0
+                    ? "bg-blue-600 text-white hover:bg-blue-700"
+                    : "bg-white text-gray-700 hover:bg-blue-50"
+                }`}
+              >
+                {p}
+                <ArrowRight size={15} />
+              </Link>
+            );
+          })}
         </div>
 
       </div>

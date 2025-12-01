@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
+import { slugify } from "@/app/utils/slugify";
 
 export default function Header() {
     const [openProducts, setOpenProducts] = useState(false);
@@ -72,16 +73,19 @@ export default function Header() {
                         {openProducts && (
                             <div className="fixed left-0 top-[97px] w-full bg-white shadow-xl border-t animate-fadeIn z-40">
                                 <div className="max-w-7xl mx-auto p-8 grid grid-cols-4 gap-6">
-                                    {productItems.map((name, i) => (
-                                        <Link
-                                            key={i}
-                                            href="#"
-                                            className="flex justify-between items-center border p-3 rounded-lg hover:bg-blue-50 transition"
-                                        >
-                                            <span className="text-sm font-medium">{name}</span>
-                                            <ArrowRight size={16} className="text-blue-600" />
-                                        </Link>
-                                    ))}
+                                    {productItems.map((name, i) => {
+                                        const categorySlug = slugify(name);
+                                        return (
+                                            <Link
+                                                key={i}
+                                                href={`/ourproduct/${categorySlug}`}
+                                                className="flex justify-between items-center border p-3 rounded-lg hover:bg-blue-50 transition"
+                                            >
+                                                <span className="text-sm font-medium">{name}</span>
+                                                <ArrowRight size={16} className="text-blue-600" />
+                                            </Link>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         )}
@@ -143,9 +147,11 @@ export default function Header() {
                         onMouseEnter={() => setOpenContact(true)}
                         onMouseLeave={() => setOpenContact(false)}
                     >
-                        <button className="flex items-center gap-1 hover:text-blue-500 text-[16px] pp-500 py-10">
-                            Contact Us <ChevronDown size={16} />
-                        </button>
+                        <Link href="/contact" className="cursor">
+                            <button className="flex items-center gap-1 hover:text-blue-500 text-[16px] pp-500 py-10">
+                                Contact Us <ChevronDown size={16} />
+                            </button>
+                        </Link>
 
                         {openContact && (
                             <div className="fixed right-30 top-[104px] bg-white shadow-xl border w-[280px] animate-fadeIn z-40 p-6">
@@ -224,19 +230,22 @@ export default function Header() {
 
                             {mobileProductsOpen && (
                                 <div className="mt-2 pl-4 space-y-2 max-h-[400px] overflow-y-auto">
-                                    {productItems.map((name, i) => (
-                                        <Link
-                                            key={i}
-                                            href="#"
-                                            className="block py-2 text-sm text-gray-700 hover:text-blue-500 border-b border-gray-100"
-                                            onClick={() => {
-                                                setMobileProductsOpen(false);
-                                                setMobileMenuOpen(false);
-                                            }}
-                                        >
-                                            {name}
-                                        </Link>
-                                    ))}
+                                    {productItems.map((name, i) => {
+                                        const categorySlug = slugify(name);
+                                        return (
+                                            <Link
+                                                key={i}
+                                                href={`/ourproduct/${categorySlug}`}
+                                                className="block py-2 text-sm text-gray-700 hover:text-blue-500 border-b border-gray-100"
+                                                onClick={() => {
+                                                    setMobileProductsOpen(false);
+                                                    setMobileMenuOpen(false);
+                                                }}
+                                            >
+                                                {name}
+                                            </Link>
+                                        );
+                                    })}
                                 </div>
                             )}
                         </li>

@@ -40,8 +40,7 @@ export default function WhyUs() {
 
   return (
     <section className="w-full bg-[#303030] py-0 overflow-hidden max-md:py-8">
-      <div className="max-w-[90%] ml-auto grid md:grid-cols-2 gap-10 
-                      max-md:max-w-full max-md:ml-0 max-md:px-4">
+      <div className="max-w-[90%] ml-auto grid md:grid-cols-2 gap-10 max-md:max-w-full max-md:ml-0 max-md:px-4">
 
         {/* LEFT CONTENT */}
         <div className="flex flex-col justify-center pr-12 max-md:pr-0">
@@ -64,8 +63,7 @@ export default function WhyUs() {
             {features.map((x, i) => (
               <div
                 key={i}
-                className={`p-4 border border-white rounded-[20px] w-full
-                ${i % 4 === 1 || i % 4 === 2 ? "bg-[#454545]" : ""}`}
+                className={`p-4 border border-white rounded-[20px] w-full ${i % 4 === 1 || i % 4 === 2 ? "bg-[#454545]" : ""}`}
               >
                 <div className="w-[33px] h-[41px] relative mb-3">
                   <Image src={x.icon} alt={x.title} fill className="object-contain" />

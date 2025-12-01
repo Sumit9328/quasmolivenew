@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/header';
 import AccessoriesHero from '../OtherComponents/Accesories/AccessoriesHero';
+import AccessoriesInfoSection from '../OtherComponents/Accesories/AccessoriesInforSection';
 import AccessoryShowcase from '../OtherComponents/Accesories/AccessoryShowcase';
 import SubscribeSectionAcc from '../OtherComponents/Accesories/SubscribeSectionAcc';
 import { FAQSection } from '../components/FAQSection';
@@ -20,6 +21,7 @@ const page = () => {
         <>
             <Header />
             <AccessoriesHero />
+            <AccessoriesInfoSection />
             <AccessoryShowcase />
             <SubscribeSectionAcc />
             <FAQSection />

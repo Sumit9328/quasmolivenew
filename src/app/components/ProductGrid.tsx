@@ -64,14 +64,7 @@ export default function ProductGrid() {
             className="shadow-md hover:shadow-xl duration-300 rounded-md overflow-hidden"
           >
             {/* IMAGE - Desktop same, mobile fluid */}
-            <div
-              className="
-                w-[338px] h-[357px] relative
-
-                max-md:w-full
-                max-md:h-[220px]
-              "
-            >
+            <div className="w-[338px] h-[357px] relative max-md:w-full max-md:h-[220px]">
               <Image
                 src={p.img}
                 alt={p.title}

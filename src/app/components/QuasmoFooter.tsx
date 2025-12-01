@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
     Facebook,
     Twitter,
@@ -112,9 +113,13 @@ export default function QuasmoFooter() {
                     </p>
 
                     <div className="flex gap-4 justify-center md:justify-end">
-                        <span>Terms & Conditions</span>
+                        <Link href="/terms-and-conditions" className="hover:text-blue-600 transition">
+                            Terms & Conditions
+                        </Link>
                         <span>•</span>
-                        <span>Privacy Notice</span>
+                        <Link href="/privacy-notice" className="hover:text-blue-600 transition">
+                            Privacy Notice
+                        </Link>
                     </div>
                 </div>
 

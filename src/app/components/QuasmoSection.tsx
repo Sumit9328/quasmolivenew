@@ -82,14 +82,7 @@ export default function QuasmoSection() {
         {/* Scroll to Top Button */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="
-            fixed bottom-8 right-8 
-            w-12 h-12 bg-blue-700 text-white rounded-full 
-            flex items-center justify-center shadow-lg 
-            hover:bg-blue-800 transition-colors
-
-            max-md:bottom-5 max-md:right-5 max-md:w-10 max-md:h-10
-          "
+          className="fixed bottom-8 right-8 w-12 h-12 bg-blue-700 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-blue-800 transition-colors max-md:bottom-5 max-md:right-5 max-md:w-10 max-md:h-10"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-5 h-5 max-md:w-4 max-md:h-4" />
